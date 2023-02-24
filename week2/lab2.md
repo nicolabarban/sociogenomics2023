@@ -138,7 +138,7 @@ head -1 Results/hapmap-ceu.ped
 ```
 ./plink --bfile Data/hapmap-ceu \
         --keep Data/list.txt \
-            --make-bed --out  Results/selectedIndividuals
+        --make-bed --out  Results/selectedIndividuals
 
 ```
 
@@ -158,7 +158,7 @@ In this way we select only a specific marker, in this case SNP `rs9930506`
 
 ./plink     --bfile Data/hapmap-ceu \
             --snps  rs9930506 \
-        --make-bed \
+        	--make-bed \
             --out  Results/rs9930506sample
 
 ```
@@ -170,8 +170,8 @@ We can merge different files (different set of individuals, in this case)
 
 
 ./plink --bfile Data/HapMap_founders \
---bmerge  HapMap_nonfounders \
---make-bed --out Results/merged_file
+   	   	--bmerge  HapMap_nonfounders \
+		--make-bed --out Results/merged_file
 ```
 
 ### Add a phenotype into PLINK files
@@ -199,9 +199,9 @@ This is how we add a phenotipic information to a plink file
 ```
 
 
-./plink      --bfile Data/1kg_EU_qc\
+./plink      --bfile Data/1kg_EU_qc \
              --pheno Data/BMI_pheno.txt \
-            --make-bed --out Results/1kg_EU_BMI
+             --make-bed --out Results/1kg_EU_BMI
 
 ```
 
@@ -241,6 +241,6 @@ Filter females
 ./plink     --bfile Data/hapmap-ceu \
             --filter-females \
             --make-bed \
-        --out Results/hapmap_filter_females
+            --out Results/hapmap_filter_females
 
 ```
