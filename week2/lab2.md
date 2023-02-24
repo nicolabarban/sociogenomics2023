@@ -1,6 +1,6 @@
 # Lab 2. Getting started with Plink
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=GIT_REPO_URL&cloudshell_tutorial=PATH_TO_MD_FILE)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=GIT_REPO_URL&cloudshell_tutorial=http://nicolabarban.com/sociogenomics2023/week2/lab2.html)
 
 ## Installing Plink in your system
 PLINK is a free, open-source software package for genomic data analysis. It was originally designed for analyzing genetic association studies, particularly for case-control studies and family-based studies. PLINK can perform various tasks related to genetic data analysis, including data management, quality control, association analysis, haplotype analysis, and population stratification correction.
@@ -126,27 +126,34 @@ head -1 Results/hapmap-ceu.ped
 
 
 
-Import VCF into plink
- 
+###Import VCF into plink
+ A VCF (Variant Call Format) file is a standard file format used in bioinformatics to store genetic variation data, such as single nucleotide polymorphisms (SNPs) and insertions/deletions (indels), typically obtained from DNA sequencing. It contains information about the genomic location, alleles, genotype, and quality score of each variant called.
 
 ```
 ./plink --vcf  Data/ALL.chr21.vcf.gz --make-bed --out Results/test_vcf
 ```
 
 
-Select individuals
+### Select individuals
 ```
 ./plink --bfile Data/hapmap-ceu \
         --keep Data/list.txt \
             --make-bed --out  Results/selectedIndividuals
 
 ```
-Select individuals with genotype at least 95% complete
+
+### Select individuals with genotype at least 95% complete
+We can select individuals based on the completness of their genotype
 ```
 
 ./plink --bfile Data/hapmap-ceu --make-bed --mind 0.05 --out Results/highgeno
 ```
-Select specific markers
+
+
+
+### Select specific markers
+
+In this way we select only a specific marker, in this case SNP `rs9930506`
 ```
 
 ./plink     --bfile Data/hapmap-ceu \
@@ -156,7 +163,9 @@ Select specific markers
 
 ```
 
-Merge genetic files
+### Merge genetic files
+
+We can merge different files (different set of individuals, in this case)
 ```
 
 
@@ -165,7 +174,9 @@ Merge genetic files
 --make-bed --out Results/merged_file
 ```
 
-Attach a phenotype
+### Add a phenotype into PLINK files
+
+PLINK file can also store info on a phenotype
 ```
 
 
@@ -177,17 +188,20 @@ head Data/1kg_EU_qc.fam
 head Data/1kg_EU_qc.bim
 ```
 
+
+This file contains info on BMI of different individuals
 ```
 
 head Data/BMI_pheno.txt
 ```
 
+This is how we add a phenotipic information to a plink file
 ```
 
 
 ./plink      --bfile Data/1kg_EU_qc\
              --pheno Data/BMI_pheno.txt \
-         --make-bed --out Results/1kg_EU_BMI
+            --make-bed --out Results/1kg_EU_BMI
 
 ```
 
@@ -196,7 +210,9 @@ head Data/BMI_pheno.txt
 ```
 ## Descriptive Statistics
 
-Allele frequency
+### Allele frequency
+We can calculate allele frequency
+
 ```
  ./plink --bfile Data/hapmap-ceu  --freq --out Results/Allele_Frequency
 ```
@@ -228,54 +244,3 @@ Filter females
         --out Results/hapmap_filter_females
 
 ```
-## Quality control
-```
-
-
-./plink --bfile Data/1kg_hm3 --mind 0.05 --make-bed --out Results/1kg_hm3_mind005
-```
-
-Calculate heterozygocity
-```
-
-./plink --bfile Data/1kg_hm3 --het --out Results/1kg_hm3_het
-```
-
-Check discordant sex
-```
-
-./plink --bfile Data/hapmap-ceu --check-sex --out Results/hapmap_sexcheck 
-```
-
-Low call-rate SNPS
-```
-
-./plink --bfile Data/1kg_hm3 --geno 0.05 --make-bed --out Results/1kg_hm3_geno
-```
-
-Allele frequency
-```
-
-./plink --bfile Data/1kg_hm3 --maf 0.01 --make-bed  --out Results/1kg_hm3_maf
-```
-deviation from HWE
-```
-
-./plink --bfile Data/1kg_hm3 --hwe 0.00001 --make-bed  --out Results/1kg_hm3_hwe
-
-```
-
-Plink QC
-```
-
-
-./plink     --bfile Data/1kg_hm3 \
-        --mind 0.03 \
-        --geno 0.05 \
-        --maf 0.01 \
-    --hwe 0.00001 \
-    --exclude Data/individuals_failQC.txt \
-        --make-bed  --out Results/1kg_hm3_QC      
-```
-
-
