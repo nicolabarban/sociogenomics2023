@@ -124,7 +124,7 @@ http://www.nealelab.is/uk-biobank
 
 ```
      
-wget -O sumstatsUKB_height.tsv.gz https://broad-ukb-sumstats-us-east-1.s3.amazonaws.com/round2/additive-tsvs/50_irnt.gwas.imputed_v3.both_sexes.tsv.bgz
+wget -O sumstatsUKB_height.tsv.gz https://www.dropbox.com/s/ou12jm89v74k55e/50_irnt.gwas.imputed_v3.both_sexes.tsv.bgz?dl= 
 
 gunzip -d sumstatsUKB_height.tsv.gz
 
@@ -133,7 +133,7 @@ gunzip -d sumstatsUKB_height.tsv.gz
 
 Alternative command if wget is not installed in your system 
 ```
-curl -L -o sumstatsUKB_height.tsv.gz  https://broad-ukb-sumstats-us-east-1.s3.amazonaws.com/round2/additive-tsvs/50_irnt.gwas.imputed_v3.both_sexes.tsv.bgz
+curl -L -o sumstatsUKB_height.tsv.gz https://www.dropbox.com/s/ou12jm89v74k55e/50_irnt.gwas.imputed_v3.both_sexes.tsv.bgz?dl=
 ```
 
 Have a look at the data
