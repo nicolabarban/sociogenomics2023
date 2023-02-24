@@ -82,34 +82,44 @@ unzip week2.zip
 cd $HOME/Sociogenomics
 ```
 
+## How to read PLINK files
 
 ![data type](Fig_7_3.jpg)
 
 
-Read Binary Plink file
+### Read Binary PLINK file
+
+we start with PLINK binary files 
 
 
+1. `.bim` file  contains info on the markers
 ```
 head Data/hapmap-ceu.bim
 ```
-
+2. `.fam` file  contains info on the individuals 
 ```
 head Data/hapmap-ceu.fam
 ```
 
-.bed files are not readable!
+2. `.bed` files are not readable!
 ```
 head Data/hapmap-ceu.bed
 ```
+### Recode PLINK file
+
 
 Recode into map and ped files
 ```
 ./plink --bfile Data/hapmap-ceu --recode --out Results/hapmap-ceu
 ```
 
+1. `.map` file  contains info on the markers
+
 ```
 head Results/hapmap-ceu.map
 ```
+
+2. `.ped` file  contains info on the individual genotypes
 ```
 head -1 Results/hapmap-ceu.ped
 ```
@@ -117,6 +127,8 @@ head -1 Results/hapmap-ceu.ped
 
 
 Import VCF into plink
+ 
+
 ```
 ./plink --vcf  Data/ALL.chr21.vcf.gz --make-bed --out Results/test_vcf
 ```
