@@ -3,6 +3,9 @@
 ## University of Bologna
 
 
+## Students' presentations
+* [Topics and Instructions](presentations.md)
+
 ## Week 1
 
 * [Lab 1](week1/lab1.md)
