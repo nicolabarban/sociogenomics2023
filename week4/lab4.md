@@ -16,7 +16,18 @@ In this lab we will learn:
 Let's have a look a the file. 
 
 ```
-cd $HOME/sociogenomics
+cd $HOME/Sociogenomics
+rm Data/*.*
+
+wget -O Data/lab_week4.zip https://www.dropbox.com/s/wum0okiq4dbn9p0/week4.zip?dl=0 
+unzip -o -d Data/ Data/lab_week4.zip 
+mv Data/week4/*.*  Data/ 
+rm -r Data/week4/
+```
+
+
+
+```
  head Data/1kg_EU_BMI.fam
 ```
 
@@ -50,8 +61,6 @@ head Results/Allele_Frequency.frq
 
 individuals
 ```
-
-
 ./plink --bfile Data/hapmap-ceu --missing --out Results/missing_data
 ```
 variants
@@ -66,43 +75,56 @@ Filter females
 ./plink     --bfile Data/hapmap-ceu \
             --filter-females \
             --make-bed \
-        --out Results/hapmap_filter_females
+       	 	--out Results/hapmap_filter_females
 
 ```
 ## Quality control
 ```
 
 
-./plink --bfile Data/1kg_hm3 --mind 0.05 --make-bed --out Results/1kg_hm3_mind005
+./plink --bfile Data/1kg_hm3 /
+		--mind 0.05 /
+		--make-bed /
+		--out Results/1kg_hm3_mind005
 ```
 
 Calculate heterozygocity
 ```
 
-./plink --bfile Data/1kg_hm3 --het --out Results/1kg_hm3_het
+./plink --bfile Data/1kg_hm3 /
+		--het --out Results/1kg_hm3_het
 ```
 
 Check discordant sex
 ```
 
-./plink --bfile Data/hapmap-ceu --check-sex --out Results/hapmap_sexcheck 
+./plink --bfile Data/hapmap-ceu /
+		--check-sex /
+		--out Results/hapmap_sexcheck 
 ```
 
 Low call-rate SNPS
 ```
 
-./plink --bfile Data/1kg_hm3 --geno 0.05 --make-bed --out Results/1kg_hm3_geno
+./plink --bfile Data/1kg_hm3 /
+		--geno 0.05 /
+		--make-bed /
+		--out Results/1kg_hm3_geno
 ```
 
 Allele frequency
 ```
 
-./plink --bfile Data/1kg_hm3 --maf 0.01 --make-bed  --out Results/1kg_hm3_maf
+./plink --bfile Data/1kg_hm3 /
+	 	--maf 0.01 /
+		--make-bed  --out Results/1kg_hm3_maf
 ```
 deviation from HWE
 ```
 
-./plink --bfile Data/1kg_hm3 --hwe 0.00001 --make-bed  --out Results/1kg_hm3_hwe
+./plink --bfile Data/1kg_hm3 /
+	 	--hwe 0.00001 /
+		--make-bed  --out Results/1kg_hm3_hwe
 
 ```
 
@@ -111,11 +133,11 @@ deviation from HWE
 
 
 ./plink     --bfile Data/1kg_hm3 \
-        --mind 0.03 \
-        --geno 0.05 \
-        --maf 0.01 \
-    --hwe 0.00001 \
-    --exclude Data/individuals_failQC.txt \
+       	--mind 0.03 \
+       	--geno 0.05 \
+       	--maf 0.01 \
+    	--hwe 0.00001 \
+   	  	--exclude Data/individuals_failQC.txt \
         --make-bed  --out Results/1kg_hm3_QC      
 			
 ```
@@ -123,28 +145,32 @@ deviation from HWE
 
 Calculate linkage disequilibrium
 ```
-./plink --bfile Data/hapmap-ceu --ld rs2883059 rs2777888 --out Results/ld_example
+./plink --bfile Data/hapmap-ceu /
+	 	--ld rs2883059 rs2777888 /
+		--out Results/ld_example
 
 ```
 Caluclate independent SNPs (Pruning)
 ```
 
-./plink 	  --bfile Results/1kg_hm3_qc --maf 0.01 \
-        --indep-pairwise 50 5 0.2 \
-        --out  Results/1kg_hm3_qc_pruned
+./plink 	 --bfile Results/1kg_hm3_qc --maf 0.01 \
+        	--indep-pairwise 50 5 0.2 \
+        	--out  Results/1kg_hm3_qc_pruned
 ```
 Select from original sample independent SNPs
 ```
-./plink	--bfile  Results/1kg_hm3_qc \
-	--extract Results/1kg_hm3_qc_pruned.prune.in \
-	--make-bed \
- 		--out  Results/1kg_hm3_pruned
+./plink		--bfile  Results/1kg_hm3_qc \
+			--extract Results/1kg_hm3_qc_pruned.prune.in \
+			--make-bed \
+ 			--out  Results/1kg_hm3_pruned
 		
 		
 ```
 ## Calculate PCA
 ```
-./plink --bfile  Results/1kg_hm3_pruned --pca 10 --out  Results/1kg_pca
+./plink --bfile  Results/1kg_hm3_pruned /
+		--pca 10 /
+		--out  Results/1kg_pca
 
 ```
 
@@ -160,7 +186,9 @@ Calculate Identity By State matrix
 Calculate relatedness matrix
 
 ```
-./plink --bfile Results/1kg_hm3_pruned --keep Data/1kg_samples_EUR.txt --make-rel --out Results/rel_matrix
+./plink --bfile Results/1kg_hm3_pruned /
+		--keep Data/1kg_samples_EUR.txt /
+		--make-rel --out Results/rel_matrix
 ```
 
 
@@ -170,36 +198,36 @@ Calculate relatedness matrix
 
 Linear additive model
 ```
-./plink    	 --bfile Data/1kg_EU_BMI \
-        	 --snps rs9674439 \
-       	 --assoc \
-      	 --linear \
-      	 --out Results/BMIrs9674439
+./plink    	--bfile Data/1kg_EU_BMI \
+        	--snps rs9674439 \
+       	 	--assoc \
+      	 	--linear \
+      		--out Results/BMIrs9674439
 ```
 Logistic additive model
 ```
 
-./plink    	 --bfile Data/1kg_EU_Overweight \
-        	 --snps rs9674439 \
-       	 --assoc \
-      	 --logistic \
-      	 --out Results/Overweight_rs9674439
+./plink    	--bfile Data/1kg_EU_Overweight \
+        	--snps rs9674439 \
+       	 	--assoc \
+      	 	--logistic \
+      	 	--out Results/Overweight_rs9674439
 
 ```
 Linear dominant analysis
 ```
 ./plink    	 --bfile Data/1kg_EU_BMI \
         	 --snps rs9674439 \
-       	 --assoc \
-      	 --linear dominant \
-      	 --out Results/BMIrs9674439
+       	 	--assoc \
+      	 	--linear dominant \
+      	 	--out Results/BMIrs9674439
 ```		 
 	
 
 Genome-Wide Analysis		 
 ```		 
-./plink    	 --bfile Data/1kg_EU_BMI \
-       	 --assoc \
-      	 --linear \
-      	 --out Results/BMIgwas
+./plink    	--bfile Data/1kg_EU_BMI \
+       	 	--assoc \
+      	 	--linear \
+      	 	--out Results/BMIgwas
 ```		 
