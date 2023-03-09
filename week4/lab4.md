@@ -16,6 +16,7 @@ In this lab we will learn:
 Let's have a look a the file. 
 
 ```
+cd $HOME/sociogenomics
  head Data/1kg_EU_BMI.fam
 ```
 
