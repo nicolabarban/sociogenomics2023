@@ -137,7 +137,6 @@ deviation from HWE
        	--geno 0.05 \
        	--maf 0.01 \
     	--hwe 0.00001 \
-   	  	--exclude Data/individuals_failQC.txt \
         --make-bed  --out Results/1kg_hm3_QC      
 			
 ```
