@@ -82,48 +82,48 @@ Filter females
 ```
 
 
-./plink --bfile Data/1kg_hm3 /
-		--mind 0.05 /
-		--make-bed /
+./plink --bfile Data/1kg_EU_BMI \
+		--mind 0.05 \
+		--make-bed \
 		--out Results/1kg_hm3_mind005
 ```
 
 Calculate heterozygocity
 ```
 
-./plink --bfile Data/1kg_hm3 /
+./plink --bfile Data/1kg_EU_BMI \
 		--het --out Results/1kg_hm3_het
 ```
 
 Check discordant sex
 ```
 
-./plink --bfile Data/hapmap-ceu /
-		--check-sex /
+./plink --bfile Data/hapmap-ceu \
+		--check-sex \
 		--out Results/hapmap_sexcheck 
 ```
 
 Low call-rate SNPS
 ```
 
-./plink --bfile Data/1kg_hm3 /
-		--geno 0.05 /
-		--make-bed /
+./plink --bfile Data/1kg_EU_BMI \
+		--geno 0.05 \
+		--make-bed \
 		--out Results/1kg_hm3_geno
 ```
 
 Allele frequency
 ```
 
-./plink --bfile Data/1kg_hm3 /
-	 	--maf 0.01 /
+./plink --bfile Data/1kg_EU_BMI \
+	 	--maf 0.01 \
 		--make-bed  --out Results/1kg_hm3_maf
 ```
 deviation from HWE
 ```
 
-./plink --bfile Data/1kg_hm3 /
-	 	--hwe 0.00001 /
+./plink --bfile Data/1kg_EU_BMI \
+	 	--hwe 0.00001 \
 		--make-bed  --out Results/1kg_hm3_hwe
 
 ```
@@ -132,7 +132,7 @@ deviation from HWE
 ```
 
 
-./plink     --bfile Data/1kg_hm3 \
+./plink     --bfile Data/1kg_EU_BMI \
        	--mind 0.03 \
        	--geno 0.05 \
        	--maf 0.01 \
@@ -145,21 +145,21 @@ deviation from HWE
 
 Calculate linkage disequilibrium
 ```
-./plink --bfile Data/hapmap-ceu /
-	 	--ld rs2883059 rs2777888 /
+./plink --bfile Data/hapmap-ceu \
+	 	--ld rs2883059 rs2777888\
 		--out Results/ld_example
 
 ```
 Caluclate independent SNPs (Pruning)
 ```
 
-./plink 	 --bfile Results/1kg_hm3_qc --maf 0.01 \
+./plink 	 --bfile Results/1kg_EU_BMI --maf 0.01 \
         	--indep-pairwise 50 5 0.2 \
         	--out  Results/1kg_hm3_qc_pruned
 ```
 Select from original sample independent SNPs
 ```
-./plink		--bfile  Results/1kg_hm3_qc \
+./plink		--bfile  Results/1kg_EU_BMI \
 			--extract Results/1kg_hm3_qc_pruned.prune.in \
 			--make-bed \
  			--out  Results/1kg_hm3_pruned
@@ -168,8 +168,8 @@ Select from original sample independent SNPs
 ```
 ## Calculate PCA
 ```
-./plink --bfile  Results/1kg_hm3_pruned /
-		--pca 10 /
+./plink --bfile  Results/1kg_hm3_pruned \
+		--pca 10 \
 		--out  Results/1kg_pca
 
 ```
