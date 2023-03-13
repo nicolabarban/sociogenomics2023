@@ -28,13 +28,9 @@
 ### Data
 * [week4.zip](https://www.dropbox.com/s/z42fy0pp5zkmwi2/lab3.zip?dl=0)
 
+## Week 5
 
-[//]: # ## Week 5
-
-[//]: # * [Lab week 5](week5/lab_week5.md)
-
-[//]: # ### Data
-[//]: # * [week5.zip](https://www.dropbox.com/s/spc85n0kwugau8v/week5.zip?dl=0)
+ * [Lab week 5](week5/lab_week5.md)
 
 
 

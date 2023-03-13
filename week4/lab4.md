@@ -10,8 +10,7 @@ In this lab we will learn:
 * Run association analysis with PLINK
 * Select independent SNPS
 * compute Principal Components Analysis in PLINK
-* Calculate IBS and relatedness
-* Run a GWAS in plink
+
 ## Part I . Managing files and directories.
 Let's have a look a the file. 
 
@@ -149,7 +148,7 @@ Calculate linkage disequilibrium
 		--out Results/ld_example
 
 ```
-Caluclate independent SNPs (Pruning)
+Calculate independent SNPs (Pruning)
 ```
 
 ./plink 	 --bfile Results/1kg_EU_BMI --maf 0.01 \
@@ -173,60 +172,3 @@ Select from original sample independent SNPs
 
 ```
 
-
-
-## Calculate IBS and relatedness
-Calculate Identity By State matrix
-```
-./plink --bfile  Results/1kg_hm3_pruned \
-		--keep Data/1kg_samples_EUR.txt \
-		--distance --out Results/ibs_matrix
-```
-Calculate relatedness matrix
-
-```
-./plink --bfile Results/1kg_hm3_pruned /
-		--keep Data/1kg_samples_EUR.txt /
-		--make-rel --out Results/rel_matrix
-```
-
-
-
-
-## Association analyss
-
-Linear additive model
-```
-./plink    	--bfile Data/1kg_EU_BMI \
-        	--snps rs9674439 \
-       	 	--assoc \
-      	 	--linear \
-      		--out Results/BMIrs9674439
-```
-Logistic additive model
-```
-
-./plink    	--bfile Data/1kg_EU_Overweight \
-        	--snps rs9674439 \
-       	 	--assoc \
-      	 	--logistic \
-      	 	--out Results/Overweight_rs9674439
-
-```
-Linear dominant analysis
-```
-./plink    	 --bfile Data/1kg_EU_BMI \
-        	 --snps rs9674439 \
-       	 	--assoc \
-      	 	--linear dominant \
-      	 	--out Results/BMIrs9674439
-```		 
-	
-
-Genome-Wide Analysis		 
-```		 
-./plink    	--bfile Data/1kg_EU_BMI \
-       	 	--assoc \
-      	 	--linear \
-      	 	--out Results/BMIgwas
-```		 
