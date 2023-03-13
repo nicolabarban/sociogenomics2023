@@ -145,7 +145,7 @@ deviation from HWE
 Calculate linkage disequilibrium
 ```
 ./plink --bfile Data/hapmap-ceu \
-	 	--ld rs2883059 rs2777888\
+	 	--ld rs2883059 rs2777888 \
 		--out Results/ld_example
 
 ```
