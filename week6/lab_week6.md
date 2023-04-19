@@ -5,9 +5,12 @@
 
 ## Description
 In this lab we will learn:
+* Calculate a "monogenic" score
 * Calculate PGS using the software PRSice
+* Use the calculated PGS in R
 
 ## Data
+```
  wget -O Data/lab_week6.zip https://www.dropbox.com/s/kwciw2cb19gkrzy/week6.zip?dl=0
 unzip -o -d Data/ Data/lab_week6.zip 
 mv Data/week6/*.*  Data/ 
@@ -27,6 +30,7 @@ the file score_rs9930506.txt  includes the weights
 ```
 
 This is our "monogenic score"
+
 ```
 head Results/1kg_FTOscore.profile
 ```
