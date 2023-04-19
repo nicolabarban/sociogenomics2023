@@ -35,12 +35,12 @@
 
 
 
-[//]: # ## Week 7
+## Week 6
 
-[//]: # * [Lab week 7](week7/lab_week7.md)
+# * [Lab week 6](week6/lab_week6.md)
 
-[//]: # ### Data
-[//]: # * [week7.zip](https://www.dropbox.com/s/ieer9l0tzsj6f9z/data_week7.zip?dl=0)
+### Data
+* [week6.zip](https://www.dropbox.com/s/kwciw2cb19gkrzy/week6.zip?dl=0)
 
 
 
