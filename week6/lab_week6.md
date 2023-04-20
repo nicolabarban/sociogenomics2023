@@ -1,6 +1,6 @@
 # Lab week 6. Polygenic scores
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/nicolabarban/sociogenomics2023&cloudshell_tutorial=week5/lab_week6.md)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/nicolabarban/sociogenomics2023&cloudshell_tutorial=week6/lab_week6.md)
 
 ## Description
 In this lab we will learn:
@@ -10,6 +10,7 @@ In this lab we will learn:
 
 ## Data
 ```
+cd $HOME/Sociogenomics
  wget -O Data/lab_week6.zip https://www.dropbox.com/s/kwciw2cb19gkrzy/week6.zip?dl=0
 unzip -o -d Data/ Data/lab_week6.zip 
 mv Data/week6/*.*  Data/ 

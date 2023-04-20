@@ -37,7 +37,7 @@
 
 ## Week 6
 
-# * [Lab week 6](week6/lab_week6.md)
+* [Lab week 6](week6/lab_week6.md)
 
 ### Data
 * [week6.zip](https://www.dropbox.com/s/kwciw2cb19gkrzy/week6.zip?dl=0)
