@@ -185,9 +185,12 @@ Rscript PRSice.R --dir . \
 
 ```
 
-THIS NEED TO BE EXECUTED IN R 
+#THIS NEED TO BE EXECUTED IN R 
+
 ```
 #import external data
+setwd("/home/nicola_barban/Sociogenomics/Results")
+
 data<-read.table("BMIscore_thresholds.all_score", header=T)
 
 # show first rows of data
@@ -270,48 +273,4 @@ rsq <- function(formula, PGS=PGS, data, indices) {
 results <- boot(data=data.with.covars, statistic=rsq, 
   	R=1000, formula=BMI~pca1+pca2+pca3+pca3+pca5+pca6+pca7+pca8+pca9+pca10, PGS=PGS)
 boot.ci(results, type="norm")      
-```
-
-
-```
-# import external data with multi-ancestry information
-
-data<-read.table("BMIscore_MULTIANCESTRY.best", header=T)
-head(data)
-
-# Calculate  standardized PGS
-data$PGS=(data$PRS-mean(data$PRS))/sd(data$PRS, na.rm=T)
-```
-
-```
-data.with.pheno<-merge(data,pheno_BMI, by="IID")
-
-#import dataset with geographical information (ancestral populations)
-geo<-read.table(file="../Data/1kg_samples.txt", sep = "\t", header=T)[, c(1,4,5,6,7)]
-names(geo)[1]<-"IID"
-
-# Create a vector with new columns names
-columns=c("FID", "IID", "pca1", "pca2", "pca3", "pca4", "pca5", "pca6", "pca7", "pca8", "pca9", "pca10")
-
-# import exteral data with PCAs
-pca<- read.table(file="pca.eigenvec", sep = "", header=F, col.names=columns)[,c(2:12)]
-
-# merge information with covariates and ancestral information
-data.with.covars<-merge(data.with.pheno,pca, by="IID")
-data.with.geo<-merge(data.with.covars,geo, by="IID")
-
-# fit a linear regression model
-mod.AFR<-lm(BMI~PGS, data=subset(data.with.geo, Superpopulation.name=="African"))
-
-summary(mod.AFR)$r.square
-```
-
-
-```
-# run bootstrap function to  estimate increased R squared
-results <- boot(data=subset(data.with.geo, Superpopulation.name=="African"), statistic=rsq, 
-  	R=1000, formula=BMI~pca1+pca2+pca3+pca3+pca5+pca6+pca7+pca8+pca9+pca10, PGS=PGS)
-
-boot.ci(results, type="norm")      
-
 ```
