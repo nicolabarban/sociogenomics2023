@@ -23,7 +23,7 @@ We start from a "monogenic score" based only on 1 SNP rs9930506
 the file score_rs9930506.txt  includes the weights 
 
 ```
-./plink 	--bfile 1kg_hm3_qc \
+plink 	--bfile 1kg_hm3_qc \
  			--score Data/score_rs9930506.txt 1 2 3 \
  			--pheno Data/BMI_pheno.txt \
  			--out Results/1kg_FTOscore
