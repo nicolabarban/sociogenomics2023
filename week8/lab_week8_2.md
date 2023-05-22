@@ -28,7 +28,8 @@ ggplot(data = data_rg, aes(Trait1, Trait2, fill = rg))+
 ```
 
 
-
+Download all the genetic correlations from the paper: [An atlas of genetic correlations across human diseases and traits](https://www.nature.com/articles/ng.3406) 
+```
 
 data_rg_ALL<-read.table("http://nicolabarban.com/sociogenomics2023/week8/RG_ALL.csv",fill =T, sep="\t", header=T, quote="") 
 ```
