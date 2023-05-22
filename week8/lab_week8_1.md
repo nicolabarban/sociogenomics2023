@@ -1,7 +1,7 @@
 # Lab week 8. Working with summary statistics. Part I
 
 ## Manhattan Plots and QQplots 
-##  package manhattanly
+## Using the   package manhattanly
 
 This first part of the lab will use Rstudio. 
 
