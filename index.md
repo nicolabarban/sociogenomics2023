@@ -47,9 +47,9 @@
 
 * [Lab week 8 Part I](week8/lab_week8_1.md)
 * [Lab week 8 Part II](week8/lab_week8_2.md)
-* [Data](LD-Hub_genetic_correlation_example.txt)
+* [Data](week8/LD-Hub_genetic_correlation_example.txt)
 
 * [Lab week 8 Part III](week8/lab_week8_3.md)
 
 [//]: # ### Data
-[//]: # * [week7.zip](https://www.dropbox.com/s/ieer9l0tzsj6f9z/data_week7.zip?dl=0)
+* [Data Part III](https://www.dropbox.com/s/ieer9l0tzsj6f9z/data_week7.zip?dl=0)
