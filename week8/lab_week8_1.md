@@ -6,6 +6,7 @@
 This first part of the lab will use Rstudio. 
 
 Use R to download the summary statistics
+
 ```
 download.file("http://ssgac.org/documents/EduYears_Main.txt.gz", dest="EA2_results.txt.gz")
 ```
@@ -16,7 +17,7 @@ download.file("http://ssgac.org/documents/EduYears_Main.txt.gz", dest="EA2_resul
 EAgwasResults<-read.table("EA2_results.txt.gz", header=T)
 
 head(EAgwasResults)
-dim(EAgwasRsults)
+dim(EAgwasResults)
 ```
 
 This is a very large file, we can spped up things by selecting ony SNPS with Pvalue <0.005
