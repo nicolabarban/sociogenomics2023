@@ -1,7 +1,7 @@
-# Lab week 8. Working with summary statistics
+# Lab week 8. Working with summary statistics. Part I
 
-## Manhattan Plots, QQplots and genetic correlations  matrices
-## Alternative plots using package manhattanly
+## Manhattan Plots and QQplots 
+##  package manhattanly
 
 This first part of the lab will use Rstudio. 
 
@@ -45,8 +45,12 @@ manhattanly(EAgwasResults_sub, snp = "MarkerName" , bp="POS", p="Pval", chr="CHR
 
 We can use the same library to plot QQplots
 ```
-qqly(EAgwasResults, snp = "MarkerName" , bp="POS", p="Pval", chr="CHR")
+qqly(EAgwasResults_sub, snp = "MarkerName" , bp="POS", p="Pval", chr="CHR")
 
 ```
+The previous command is wrong as it truncates the distribution of p-value. If you need to limit the number of points, it is better to random select the points. 
+```
+qqly(EAgwasResults[sample(dim(EAgwasResults)[1],100000),], snp = "MarkerName" , bp="POS", p="Pval", chr="CHR")
 
+```
 
